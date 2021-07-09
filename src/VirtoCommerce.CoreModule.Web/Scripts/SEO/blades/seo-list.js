@@ -1,4 +1,4 @@
-﻿angular.module('virtoCommerce.coreModule.seo')
+angular.module('virtoCommerce.coreModule.seo')
 .controller('virtoCommerce.coreModule.seo.seoListController', ['$scope', 'platformWebApp.uiGridHelper', 'virtoCommerce.storeModule.stores', 'platformWebApp.bladeNavigationService', 'platformWebApp.dialogService', function ($scope, uiGridHelper, stores, bladeNavigationService, dialogService) {
     var blade = $scope.blade;
     $scope.selectedNodeId = null; // need to initialize to null
@@ -86,7 +86,7 @@
 
     blade.toolbarCommands = [
       {
-          name: "platform.commands.add", icon: 'fa fa-plus',
+          name: "platform.commands.add", icon: 'fas fa-plus',
           executeMethod: function () {
               bladeNavigationService.closeChildrenBlades(blade, function () {
                   openDetailsBlade({ isActive: true }, true);
@@ -96,7 +96,7 @@
           permission: blade.updatePermission
       },
       {
-          name: "platform.commands.delete", icon: 'fa fa-trash-o',
+          name: "platform.commands.delete", icon: 'fas fa-trash-alt',
           executeMethod: function () { deleteList($scope.gridApi.selection.getSelectedRows()); },
           canExecuteMethod: function () {
               return $scope.gridApi && _.any($scope.gridApi.selection.getSelectedRows());
@@ -110,7 +110,7 @@
         uiGridHelper.initialize($scope, gridOptions);
     };
 
-    blade.headIcon = 'fa-globe';
+    blade.headIcon = 'fa fa-globe';
     blade.subtitle = 'core.blades.seo-list.subtitle';
 
     blade.refresh(blade.seoContainerObject);

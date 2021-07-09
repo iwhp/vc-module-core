@@ -44,7 +44,7 @@ angular.module('virtoCommerce.coreModule.currency')
 
             blade.title = blade.isNew ? 'core.blades.currency-detail.new-title' : data.name;
             blade.subtitle = blade.isNew ? 'core.blades.currency-detail.new-subtitle' : 'core.blades.currency-detail.subtitle';
-        };
+        }
 
         var formScope;
         $scope.setForm = function (form) {
@@ -59,12 +59,12 @@ angular.module('virtoCommerce.coreModule.currency')
             return isDirty() && formScope && formScope.$valid;
         }
 
-        blade.headIcon = 'fa-money';
+        blade.headIcon = 'fa fa-money';
 
         if (!blade.isNew)
             blade.toolbarCommands = [
                 {
-                    name: "platform.commands.save", icon: 'fa fa-save',
+                    name: "platform.commands.save", icon: 'fas fa-save',
                     executeMethod: $scope.saveChanges,
                     canExecuteMethod: canSave,
                     permission: blade.updatePermission
@@ -78,7 +78,7 @@ angular.module('virtoCommerce.coreModule.currency')
                     permission: blade.updatePermission
                 },
                 {
-                    name: "platform.commands.delete", icon: 'fa fa-trash-o',
+                    name: "platform.commands.delete", icon: 'fas fa-trash-alt',
                     executeMethod: deleteEntry,
                     canExecuteMethod: function () {
                         return !blade.origEntity.isPrimary;

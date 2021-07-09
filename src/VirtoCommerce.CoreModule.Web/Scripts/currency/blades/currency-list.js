@@ -1,4 +1,4 @@
-﻿angular.module('virtoCommerce.coreModule.currency')
+angular.module('virtoCommerce.coreModule.currency')
 .controller('virtoCommerce.coreModule.currency.currencyListController', ['$scope', 'virtoCommerce.coreModule.currency.currencyApi', 'platformWebApp.bladeNavigationService',
 function ($scope, currencyApi, bladeNavigationService) {
     var blade = $scope.blade;
@@ -31,14 +31,14 @@ function ($scope, currencyApi, bladeNavigationService) {
         };
         angular.extend(newBlade, bladeData);
         bladeNavigationService.showBlade(newBlade, blade);
-    };
+    }
 
     $scope.selectNode = function (node) {
         blade.setSelectedId(node.code);
         showDetailBlade({ data: node });
     };
 
-    blade.headIcon = 'fa-money';
+    blade.headIcon = 'fa fa-money';
     blade.toolbarCommands = [
       {
           name: "platform.commands.refresh", icon: 'fa fa-refresh',
@@ -48,7 +48,7 @@ function ($scope, currencyApi, bladeNavigationService) {
           }
       },
         {
-            name: "platform.commands.add", icon: 'fa fa-plus',
+            name: "platform.commands.add", icon: 'fas fa-plus',
             executeMethod: function () {
                 blade.setSelectedId(null);
                 showDetailBlade({ isNew: true });
@@ -61,7 +61,7 @@ function ($scope, currencyApi, bladeNavigationService) {
     ];
 
     // actions on load
-    blade.title = 'core.blades.currency-list.title',
-    blade.subtitle = 'core.blades.currency-list.subtitle',
+    blade.title = 'core.blades.currency-list.title';
+    blade.subtitle = 'core.blades.currency-list.subtitle';
     blade.refresh();
 }]);
